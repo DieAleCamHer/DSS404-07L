@@ -1,40 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potencia</title>
+<meta charset="UTF-8">
+<title>Potencia sin pow()</title>
+<style>
+body{font-family:Arial;background:#f4f4f4;padding:20px}
+form,.resultado{background:white;padding:15px;border-radius:8px;margin-top:15px}
+</style>
 </head>
 <body>
-    <h2>Cálculo de Potencia</h2>
 
-    <form method="post">
-        Nùmero base:
-        <input type="number" name="base" required><br><br>
+<h2>Cálculo de Potencia</h2>
 
-        Exponente (entero):
-        <input type="number" name="exponente" required><br><br>
+<form method="post">
+Número base:
+<input type="number" step="any" name="base" required><br><br>
 
-        <button type="submit">Calcular</button>
-    </form>
-    <?php
-    if($_SERVER['REQUEST_METHOD'] == $_POST){
-        $base = $_POST["base"];
-        $exp = $_POST["exponente"];
-        $resultado = 1;
+Exponente:
+<input type="number" name="exponente" required><br><br>
 
-        for ($i=0; $i < abs($exp); $i++) { 
-            $resultado *= $base;
-        }
+<button type="submit" name="calcular">Calcular</button>
+</form>
 
-        if($exp < 0){
-            $resultado = 1/$resultado;
-        }
+<?php
+if(isset($_POST["calcular"])){
 
-        echo "<div>";
-        echo "Resultado: $base ^ $exp = $resultado";
-        echo "</div>";
+    $base = floatval($_POST["base"]);
+    $exp = intval($_POST["exponente"]);
+
+    $resultado = 1;
+
+    for($i = 0; $i < abs($exp); $i++){
+        $resultado *= $base;
     }
-    ?>
+
+    if($exp < 0){
+        $resultado = 1 / $resultado;
+    }
+
+    echo "<div class='resultado'>";
+    echo "<strong>Resultado:</strong> $base ^ $exp = $resultado";
+    echo "</div>";
+}
+?>
+
 </body>
 </html>
