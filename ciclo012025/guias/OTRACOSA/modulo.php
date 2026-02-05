@@ -33,6 +33,9 @@
                 }
             }
             echo "<tr><th>La suma de los numeros pares es: $suma</th></tr>";
+            echo "</table>";
+        } else {
+            echo "Ingrese un número entero mayor a cero";
         }
     }
     ?>

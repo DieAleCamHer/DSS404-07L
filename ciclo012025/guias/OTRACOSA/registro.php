@@ -42,7 +42,7 @@
             } else {
                 echo "Desaprobado";
             }
-        "</td></tr>";
+        echo "</td></tr>";
     }
 
     echo "</table>"

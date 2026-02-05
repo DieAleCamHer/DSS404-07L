@@ -25,8 +25,7 @@
 
         if ($ent >= 0) {
             for ($i = $ent; $i >= 1; $i--) { 
-                $resultado *= $ent;
-                $ent -= 1;
+                $resultado *= $i;
             }
             echo "<div>";
             echo "<strong>El factorial de:</strong> $fact = $resultado";
